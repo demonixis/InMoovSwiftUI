@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC2DBCD32BD9050100E171CA /* InMoovSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DBCD22BD9050100E171CA /* InMoovSwiftApp.swift */; };
+		AC2DBCD52BD9050100E171CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DBCD42BD9050100E171CA /* ContentView.swift */; };
+		AC2DBCD72BD9050300E171CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2DBCD62BD9050300E171CA /* Assets.xcassets */; };
+		AC2DBCDA2BD9050300E171CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2DBCD92BD9050300E171CA /* Preview Assets.xcassets */; };
+		AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */; };
+		AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3872582BDE8DE400656A98 /* ServoMixerView.swift */; };
+		AC38725B2BDE8E0000656A98 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725A2BDE8E0000656A98 /* SettingsView.swift */; };
+		AC38725D2BDE8E0B00656A98 /* BrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725C2BDE8E0B00656A98 /* BrainView.swift */; };
+		AC38725F2BDE8E2300656A98 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725E2BDE8E2300656A98 /* ServiceView.swift */; };
+		AC60E7872BDD3117001EDB83 /* RobotCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60E7862BDD3117001EDB83 /* RobotCommand.swift */; };
+		AC7287582BE1619400768C52 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7287572BE1619400768C52 /* BluetoothManager.swift */; };
+		ACB3BEA92BE0D528006F7AF3 /* JawMechanismServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */; };
+		ACB3BEAB2BE0D987006F7AF3 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */; };
+		ACB3BEAE2BE0F2A4006F7AF3 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = ACB3BEAD2BE0F2A4006F7AF3 /* OpenAI */; };
+		ACB5F44F2BDF9C5000642255 /* RobotServo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F44E2BDF9C5000642255 /* RobotServo.swift */; };
+		ACB5F4512BDFB92C00642255 /* ServoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4502BDFB92C00642255 /* ServoData.swift */; };
+		ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4522BDFF21100642255 /* ServoDataManager.swift */; };
+		ACB5F4552BDFF3F400642255 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4542BDFF3F400642255 /* SettingsManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AC2DBCCF2BD9050100E171CA /* InMoovSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMoovSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2DBCD22BD9050100E171CA /* InMoovSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMoovSwiftApp.swift; sourceTree = "<group>"; };
+		AC2DBCD42BD9050100E171CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AC2DBCD62BD9050300E171CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC2DBCD92BD9050300E171CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonstrationServiceView.swift; sourceTree = "<group>"; };
+		AC3872582BDE8DE400656A98 /* ServoMixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoMixerView.swift; sourceTree = "<group>"; };
+		AC38725A2BDE8E0000656A98 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AC38725C2BDE8E0B00656A98 /* BrainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainView.swift; sourceTree = "<group>"; };
+		AC38725E2BDE8E2300656A98 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		AC60E7862BDD3117001EDB83 /* RobotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotCommand.swift; sourceTree = "<group>"; };
+		AC7287572BE1619400768C52 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BluetoothManager.swift; path = InMoovSwift/Managers/BluetoothManager.swift; sourceTree = SOURCE_ROOT; };
+		ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JawMechanismServiceView.swift; sourceTree = "<group>"; };
+		ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		ACB5F44E2BDF9C5000642255 /* RobotServo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotServo.swift; sourceTree = "<group>"; };
+		ACB5F4502BDFB92C00642255 /* ServoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoData.swift; sourceTree = "<group>"; };
+		ACB5F4522BDFF21100642255 /* ServoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoDataManager.swift; sourceTree = "<group>"; };
+		ACB5F4542BDFF3F400642255 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC2DBCCC2BD9050100E171CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACB3BEAE2BE0F2A4006F7AF3 /* OpenAI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC2DBCC62BD9050100E171CA = {
+			isa = PBXGroup;
+			children = (
+				AC2DBCD12BD9050100E171CA /* InMoovSwift */,
+				AC2DBCD02BD9050100E171CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC2DBCD02BD9050100E171CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC2DBCCF2BD9050100E171CA /* InMoovSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC2DBCD12BD9050100E171CA /* InMoovSwift */ = {
+			isa = PBXGroup;
+			children = (
+				AC7287562BE160F500768C52 /* Managers */,
+				ACB5F44D2BDF9C4000642255 /* Data */,
+				AC3872572BDE8DD000656A98 /* Views */,
+				AC2DBCD22BD9050100E171CA /* InMoovSwiftApp.swift */,
+				AC2DBCD42BD9050100E171CA /* ContentView.swift */,
+				AC2DBCD62BD9050300E171CA /* Assets.xcassets */,
+				AC2DBCD82BD9050300E171CA /* Preview Content */,
+			);
+			path = InMoovSwift;
+			sourceTree = "<group>";
+		};
+		AC2DBCD82BD9050300E171CA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AC2DBCD92BD9050300E171CA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC3872572BDE8DD000656A98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACB3BEA72BE0D506006F7AF3 /* Services */,
+				AC3872582BDE8DE400656A98 /* ServoMixerView.swift */,
+				AC38725A2BDE8E0000656A98 /* SettingsView.swift */,
+				AC38725C2BDE8E0B00656A98 /* BrainView.swift */,
+				AC38725E2BDE8E2300656A98 /* ServiceView.swift */,
+				ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC7287562BE160F500768C52 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AC7287572BE1619400768C52 /* BluetoothManager.swift */,
+				ACB5F4522BDFF21100642255 /* ServoDataManager.swift */,
+				ACB5F4542BDFF3F400642255 /* SettingsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		ACB3BEA72BE0D506006F7AF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */,
+				ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ACB5F44D2BDF9C4000642255 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AC60E7862BDD3117001EDB83 /* RobotCommand.swift */,
+				ACB5F44E2BDF9C5000642255 /* RobotServo.swift */,
+				ACB5F4502BDFB92C00642255 /* ServoData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC2DBCCE2BD9050100E171CA /* InMoovSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC2DBCDD2BD9050300E171CA /* Build configuration list for PBXNativeTarget "InMoovSwift" */;
+			buildPhases = (
+				AC2DBCCB2BD9050100E171CA /* Sources */,
+				AC2DBCCC2BD9050100E171CA /* Frameworks */,
+				AC2DBCCD2BD9050100E171CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InMoovSwift;
+			packageProductDependencies = (
+				ACB3BEAD2BE0F2A4006F7AF3 /* OpenAI */,
+			);
+			productName = InMoovSwift;
+			productReference = AC2DBCCF2BD9050100E171CA /* InMoovSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC2DBCC72BD9050100E171CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					AC2DBCCE2BD9050100E171CA = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = AC2DBCCA2BD9050100E171CA /* Build configuration list for PBXProject "InMoovSwift" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC2DBCC62BD9050100E171CA;
+			packageReferences = (
+				ACB3BEAC2BE0F2A4006F7AF3 /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
+			productRefGroup = AC2DBCD02BD9050100E171CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC2DBCCE2BD9050100E171CA /* InMoovSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC2DBCCD2BD9050100E171CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2DBCDA2BD9050300E171CA /* Preview Assets.xcassets in Resources */,
+				AC2DBCD72BD9050300E171CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC2DBCCB2BD9050100E171CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC38725F2BDE8E2300656A98 /* ServiceView.swift in Sources */,
+				ACB5F4552BDFF3F400642255 /* SettingsManager.swift in Sources */,
+				AC2DBCD52BD9050100E171CA /* ContentView.swift in Sources */,
+				ACB5F44F2BDF9C5000642255 /* RobotServo.swift in Sources */,
+				AC7287582BE1619400768C52 /* BluetoothManager.swift in Sources */,
+				ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */,
+				ACB5F4512BDFB92C00642255 /* ServoData.swift in Sources */,
+				AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */,
+				AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */,
+				AC38725D2BDE8E0B00656A98 /* BrainView.swift in Sources */,
+				AC38725B2BDE8E0000656A98 /* SettingsView.swift in Sources */,
+				AC60E7872BDD3117001EDB83 /* RobotCommand.swift in Sources */,
+				AC2DBCD32BD9050100E171CA /* InMoovSwiftApp.swift in Sources */,
+				ACB3BEA92BE0D528006F7AF3 /* JawMechanismServiceView.swift in Sources */,
+				ACB3BEAB2BE0D987006F7AF3 /* StartView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AC2DBCDB2BD9050300E171CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC2DBCDC2BD9050300E171CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC2DBCDE2BD9050300E171CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"InMoovSwift/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YTM7475NW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use wifi to connect to the Robot device";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use the microphone to communicate with the robot";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data for robot understanding";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.demonixis.InMoovSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC2DBCDF2BD9050300E171CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"InMoovSwift/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YTM7475NW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use wifi to connect to the Robot device";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use the microphone to communicate with the robot";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data for robot understanding";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.demonixis.InMoovSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC2DBCCA2BD9050100E171CA /* Build configuration list for PBXProject "InMoovSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC2DBCDB2BD9050300E171CA /* Debug */,
+				AC2DBCDC2BD9050300E171CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC2DBCDD2BD9050300E171CA /* Build configuration list for PBXNativeTarget "InMoovSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC2DBCDE2BD9050300E171CA /* Debug */,
+				AC2DBCDF2BD9050300E171CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ACB3BEAC2BE0F2A4006F7AF3 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ACB3BEAD2BE0F2A4006F7AF3 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACB3BEAC2BE0F2A4006F7AF3 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AC2DBCC72BD9050100E171CA /* Project object */;
+}
