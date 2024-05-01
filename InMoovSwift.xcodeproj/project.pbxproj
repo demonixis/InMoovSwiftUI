@@ -367,8 +367,8 @@
 				DEVELOPMENT_TEAM = 7YTM7475NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to connect to the robot";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to send and receive data from the robot";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use wifi to connect to the Robot device";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use the microphone to communicate with the robot";
 				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data for robot understanding";
@@ -400,8 +400,8 @@
 				DEVELOPMENT_TEAM = 7YTM7475NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to connect to the robot";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to send and receive data from the robot";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use wifi to connect to the Robot device";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use the microphone to communicate with the robot";
 				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data for robot understanding";

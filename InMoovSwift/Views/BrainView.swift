@@ -55,6 +55,16 @@ struct BrainView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(minHeight: CGFloat(30))
                 
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "mic.slash.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 15)
+                }
+                
                 Button(action: sendMessage) {
                     Text("Send")
                 }
@@ -71,7 +81,7 @@ struct BrainView: View {
         inputText = ""  // Clear the input field
         
         if useOpenAI {
-            let aiKey = SettingsManager.shared.settings.openAIKey
+            let aiKey = settingsManager.settings.openAIKey
             
             if BrainView.openAI == nil, !aiKey.isEmpty {
                 BrainView.openAI = OpenAI(apiToken: aiKey)

@@ -9,7 +9,16 @@ import SwiftUI
 
 struct StartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack {
+                Text("InMoov Compagnon App")
+                    .font(.title)
+                    //.foregroundStyle(.white)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                Spacer()
+            }
+            .foregroundStyle(.black)
+        }
     }
 }
 
