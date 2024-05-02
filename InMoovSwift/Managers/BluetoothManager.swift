@@ -20,7 +20,11 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     
     override init() {
         super.init()
-        centralManager = CBCentralManager(delegate: self, queue: nil)
+        centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBPeripheralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    func isScaning() -> Bool {
+        return centralManager.isScanning
     }
     
     func connect() {
@@ -29,7 +33,12 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             return
         }
         if !isConnected {
-            centralManager.scanForPeripherals(withServices: [targetServiceUUID], options: nil)
+            if centralManager.isScanning {
+                print("Bluetooth Manager already scanning")
+                return
+            }
+            
+            centralManager.scanForPeripherals(withServices: nil, options: nil)
         }
     }
     
@@ -59,7 +68,10 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
+        print("Found Bluetooth Device: \(peripheral.name ?? "NoBTName")")
+        
         if peripheral.name == targetDeviceName {
+            print("Found targeted device!")
             self.peripheral = peripheral
             centralManager.stopScan()
             centralManager.connect(peripheral, options: nil)
@@ -69,7 +81,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         self.isConnected = true
         print("Connected to \(peripheral.name ?? "device")")
-        peripheral.discoverServices([targetServiceUUID])
+        peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -81,7 +93,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         guard let services = peripheral.services else { return }
         for service in services {
             if service.uuid == targetServiceUUID {
-                peripheral.discoverCharacteristics([targetCharacteristicUUID], for: service)
+                peripheral.discoverCharacteristics(nil, for: service)
             }
         }
     }

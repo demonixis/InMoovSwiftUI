@@ -45,12 +45,10 @@ struct ServoMixerView: View {
     private func addServo() {
         let newServoData = ServoData(servo: .headYaw)
         servosData.append(newServoData)
-        //dataManager.addServoData(inData: newServoData)
     }
     
     private func delete(at offsets: IndexSet) {
         servosData.remove(atOffsets: offsets)
-        //dataManager.removeServoData(offsets: offsets)
     }
     
     private func saveSettings() {
