@@ -8,6 +8,7 @@ import CoreBluetooth
 import Foundation
 
 class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+    static var shared = BluetoothManager()
     var centralManager: CBCentralManager!
     var peripheral: CBPeripheral?
     
@@ -32,6 +33,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             print("Bluetooth is not powered on")
             return
         }
+        
         if !isConnected {
             if centralManager.isScanning {
                 print("Bluetooth Manager already scanning")
@@ -39,12 +41,23 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             }
             
             centralManager.scanForPeripherals(withServices: nil, options: nil)
+        } else {
+            logMessage("Bluetooth Manager already connected")
         }
+    }
+    
+    func stopScan() {
+        guard centralManager.isScanning else {
+            logMessage("Already scaning")
+            return
+        }
+        
+        centralManager.stopScan()
     }
     
     func sendData(data: Data) {
         guard let peripheral = self.peripheral, let services = peripheral.services else {
-            print("Peripheral not connected or services not discovered")
+            logMessage("Peripheral not connected or services not discovered")
             return
         }
 
@@ -68,10 +81,10 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        print("Found Bluetooth Device: \(peripheral.name ?? "NoBTName")")
+        logMessage("Found Bluetooth Device: \(peripheral.name ?? "NoBTName")")
         
         if peripheral.name == targetDeviceName {
-            print("Found targeted device!")
+            logMessage("Found targeted device! \(targetDeviceName)")
             self.peripheral = peripheral
             centralManager.stopScan()
             centralManager.connect(peripheral, options: nil)
@@ -80,21 +93,35 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         self.isConnected = true
-        print("Connected to \(peripheral.name ?? "device")")
+        logMessage("Connected to \(peripheral.name ?? "device")")
         peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         self.isConnected = false
-        print("Disconnected from \(peripheral.name ?? "device")")
+        logMessage("Disconnected from \(peripheral.name ?? "device")")
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        guard let services = peripheral.services else { return }
+        if let err = error {
+            logMessage(err.localizedDescription)
+            return
+        }
+        
+        guard let services = peripheral.services else {
+            logMessage("No services discovered")
+            return
+        }
+        
         for service in services {
             if service.uuid == targetServiceUUID {
+                logMessage("Discovering characteristics")
                 peripheral.discoverCharacteristics(nil, for: service)
             }
         }
+    }
+    
+    private func logMessage(_ message: String) {
+        print("[BluetoothManager] \(message)")
     }
 }

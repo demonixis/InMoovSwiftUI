@@ -40,6 +40,7 @@
 		AC38725E2BDE8E2300656A98 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		AC60E7862BDD3117001EDB83 /* RobotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotCommand.swift; sourceTree = "<group>"; };
 		AC7287572BE1619400768C52 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BluetoothManager.swift; path = InMoovSwift/Managers/BluetoothManager.swift; sourceTree = SOURCE_ROOT; };
+		AC95EC832BE3B68B0046CDC8 /* InMoovSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InMoovSwift.entitlements; sourceTree = "<group>"; };
 		ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JawMechanismServiceView.swift; sourceTree = "<group>"; };
 		ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		ACB5F44E2BDF9C5000642255 /* RobotServo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotServo.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		AC2DBCD12BD9050100E171CA /* InMoovSwift */ = {
 			isa = PBXGroup;
 			children = (
+				AC95EC832BE3B68B0046CDC8 /* InMoovSwift.entitlements */,
 				AC7287562BE160F500768C52 /* Managers */,
 				ACB5F44D2BDF9C4000642255 /* Data */,
 				AC3872572BDE8DD000656A98 /* Views */,
@@ -361,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InMoovSwift/InMoovSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InMoovSwift/Preview Content\"";
@@ -376,6 +379,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,9 +387,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.demonixis.InMoovSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -394,6 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InMoovSwift/InMoovSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InMoovSwift/Preview Content\"";
@@ -409,6 +416,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,9 +424,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.demonixis.InMoovSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
