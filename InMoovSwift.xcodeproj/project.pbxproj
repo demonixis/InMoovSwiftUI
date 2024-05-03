@@ -25,6 +25,7 @@
 		ACB5F4512BDFB92C00642255 /* ServoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4502BDFB92C00642255 /* ServoData.swift */; };
 		ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4522BDFF21100642255 /* ServoDataManager.swift */; };
 		ACB5F4552BDFF3F400642255 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4542BDFF3F400642255 /* SettingsManager.swift */; };
+		ACC442092BE50D13006CAE40 /* BluetoothServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		ACB5F4502BDFB92C00642255 /* ServoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoData.swift; sourceTree = "<group>"; };
 		ACB5F4522BDFF21100642255 /* ServoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoDataManager.swift; sourceTree = "<group>"; };
 		ACB5F4542BDFF3F400642255 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */,
 				ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */,
+				ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				AC7287582BE1619400768C52 /* BluetoothManager.swift in Sources */,
 				ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */,
 				ACB5F4512BDFB92C00642255 /* ServoData.swift in Sources */,
+				ACC442092BE50D13006CAE40 /* BluetoothServiceView.swift in Sources */,
 				AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */,
 				AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */,
 				AC38725D2BDE8E0B00656A98 /* BrainView.swift in Sources */,

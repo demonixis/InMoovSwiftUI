@@ -7,16 +7,25 @@
 import CoreBluetooth
 import Foundation
 
+struct DevelopmentBoard: Codable, Identifiable {
+    var id: UUID = UUID()
+    var bluetoothName: String
+    var cardId: UInt8
+    
+    var displayName: String {
+        return "Card: \(cardId)"
+    }
+}
+
 class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static var shared = BluetoothManager()
     var centralManager: CBCentralManager!
     var peripheral: CBPeripheral?
     
-    let targetDeviceName = "InMoovSharpBT-LE"
-    let targetServiceUUID = CBUUID(string: "4fafc201-1fb5-459e-8fcc-c5c9c331914b")
-    let targetCharacteristicUUID = CBUUID(string: "beb5483e-36e1-4688-b7f5-ea07361b26a8")
+    static let targetDeviceName = "InMoovSharpBT-LE"
+    static let targetServiceUUID = CBUUID(string: "4fafc201-1fb5-459e-8fcc-c5c9c331914b")
+    static let targetCharacteristicUUID = CBUUID(string: "beb5483e-36e1-4688-b7f5-ea07361b26a8")
     
-    // États de connexion pour l'interface utilisateur
     @Published var isConnected = false
     
     override init() {
@@ -30,13 +39,13 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     
     func connect() {
         guard centralManager.state == .poweredOn else {
-            print("Bluetooth is not powered on")
+            logMessage("Bluetooth is not powered on")
             return
         }
         
         if !isConnected {
             if centralManager.isScanning {
-                print("Bluetooth Manager already scanning")
+                logMessage("Bluetooth Manager already scanning")
                 return
             }
             
@@ -61,8 +70,8 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             return
         }
 
-        if let service = services.first(where: { $0.uuid == targetServiceUUID }),
-           let characteristic = service.characteristics?.first(where: { $0.uuid == targetCharacteristicUUID }) {
+        if let service = services.first(where: { $0.uuid == BluetoothManager.targetServiceUUID }),
+           let characteristic = service.characteristics?.first(where: { $0.uuid == BluetoothManager.targetCharacteristicUUID }) {
             peripheral.writeValue(data, for: characteristic, type: .withResponse)
         }
     }
@@ -83,8 +92,8 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
         logMessage("Found Bluetooth Device: \(peripheral.name ?? "NoBTName")")
         
-        if peripheral.name == targetDeviceName {
-            logMessage("Found targeted device! \(targetDeviceName)")
+        if peripheral.name == BluetoothManager.targetDeviceName {
+            logMessage("Found targeted device! \(BluetoothManager.targetDeviceName)")
             self.peripheral = peripheral
             centralManager.stopScan()
             centralManager.connect(peripheral, options: nil)
@@ -114,7 +123,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         }
         
         for service in services {
-            if service.uuid == targetServiceUUID {
+            if service.uuid == BluetoothManager.targetServiceUUID {
                 logMessage("Discovering characteristics")
                 peripheral.discoverCharacteristics(nil, for: service)
             }

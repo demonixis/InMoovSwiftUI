@@ -12,6 +12,10 @@ struct ServiceView: View {
     var body: some View {
         NavigationStack {
             List {
+                NavigationLink(destination: BluetoothServiceView(), label: {
+                    Text("Bluetooth")
+                })
+                
                 NavigationLink(destination: DemonstrationServiceView(), label: {
                     Text("Demonstration Mode")
                 })
@@ -23,4 +27,8 @@ struct ServiceView: View {
             .navigationTitle("Services")
         }
     }
+}
+
+#Preview {
+    ServiceView()
 }
