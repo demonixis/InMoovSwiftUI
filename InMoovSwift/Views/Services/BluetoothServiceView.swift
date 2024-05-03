@@ -55,28 +55,43 @@ struct BluetoothServiceView: View {
 struct ConnectionItem: View {
     @ObservedObject private var bluetoothManager: BluetoothManager = BluetoothManager.shared;
     @State var data:DevelopmentBoard
-    
+
     private let cardIds = Array(0...10).map { $0 }
     
     var body: some View {
         Form {
-            
-            Text("Bluetooth \(bluetoothManager.isConnected ? "Connected" : "Disconnected")")
-            
-            Spacer()
-            
-            Button("\(bluetoothManager.isConnected ? "Disconnect" : "Connect")") {
-                if (bluetoothManager.isConnected) {
-                    deconnectDevice()
-                } else {
-                    connectDevice()
+            List {
+                HStack {
+                    Picker("Card ID", selection: $data.cardId) {
+                        ForEach(cardIds, id: \.self) { cardId in
+                            Text("\(cardId)").tag(UInt8(cardId))
+                        }
+                    }
+                }
+                
+                HStack {
+                    TextField("Bluetooth name", text: $data.bluetoothName)
+                }
+                
+                HStack {
+                    Text("Bluetooth \(bluetoothManager.isConnected ? "Connected" : "Disconnected")")
+                    Spacer()
+                    Circle()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(bluetoothManager.isConnected ? .green : .red)
+                }
+                
+                HStack {
+                    Spacer()
+                    Button("\(bluetoothManager.isConnected ? "Disconnect" : "Connect")") {
+                        if (bluetoothManager.isConnected) {
+                            deconnectDevice()
+                        } else {
+                            connectDevice()
+                        }
+                    }
                 }
             }
-            
-            Spacer()
-            Circle()
-                .frame(width: 20, height: 20)
-                .foregroundStyle(bluetoothManager.isConnected ? .green : .red)
         }
     }
     
