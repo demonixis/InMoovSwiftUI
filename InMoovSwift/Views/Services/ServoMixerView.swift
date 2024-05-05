@@ -9,13 +9,13 @@ import SwiftUI
 import Network
 
 struct ServoMixerView: View {
-    @State private var servosData: [ServoData] = ServoDataManager.shared.servosData
+    @ObservedObject private var servoManager = ServoDataManager.shared
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
-                ForEach(servosData, id: \.id) { servoData in
-                    NavigationLink(destination: ServoDataView(servoData: $servosData[servosData.firstIndex(where: { $0.id == servoData.id })!])) {
+                ForEach(servoManager.servosData, id: \.id) { servoData in
+                    NavigationLink(destination: ServoDataView(servoData: $servoManager.servosData[servoManager.servosData.firstIndex(where: { $0.id == servoData.id })!])) {
                         Text("\(servoData.servo.displayName)")
                     }
                 }
@@ -44,17 +44,15 @@ struct ServoMixerView: View {
     
     private func addServo() {
         let newServoData = ServoData(servo: .headYaw)
-        servosData.append(newServoData)
+        servoManager.servosData.append(newServoData)
     }
     
     private func delete(at offsets: IndexSet) {
-        servosData.remove(atOffsets: offsets)
+        servoManager.servosData.remove(atOffsets: offsets)
     }
     
     private func saveSettings() {
-        let manager = ServoDataManager.shared
-        manager.servosData = servosData
-        manager.saveServosData()
+        servoManager.saveServosData()
     }
 }
 
@@ -114,6 +112,14 @@ struct ServoDataView: View {
             }
             
             VStack(alignment: .leading) {
+                Text("Neutral: \(servoData.value)")
+                Slider(value: Binding(
+                    get: { Double(servoData.value) },
+                    set: { servoData.value = UInt8($0) }
+                ), in: 0...180)
+            }
+            
+            VStack(alignment: .leading) {
                 Text("Sleep Delay (s): \(servoData.sleepDelay)")
                 Slider(value: Binding(
                     get: { Double(servoData.sleepDelay) },
@@ -136,6 +142,10 @@ struct ServoDataView: View {
             }
         }
         .navigationBarTitle("Edit Servo")
+    }
+    
+    private func updateDataOnBoard() {
+        print("Next step!")
     }
 }
 

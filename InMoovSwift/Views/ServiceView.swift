@@ -10,19 +10,28 @@ import Network
 
 struct ServiceView: View {
     var body: some View {
+        
         NavigationStack {
             List {
-                NavigationLink(destination: BluetoothServiceView(), label: {
-                    Text("Bluetooth")
-                })
+                Section("Main") {
+                    NavigationLink(destination: BluetoothServiceView(), label: {
+                        Text("Bluetooth")
+                    })
+                    
+                    NavigationLink(destination: ServoMixerView(), label: {
+                        Text("Servo Mixer")
+                    })
+                }
                 
-                NavigationLink(destination: DemonstrationServiceView(), label: {
-                    Text("Demonstration Mode")
-                })
-                
-                NavigationLink(destination: JawMechanismServiceView(), label: {
-                    Text("Jaw Mechanism")
-                })
+                Section("Secondary") {
+                    NavigationLink(destination: DemonstrationServiceView(), label: {
+                        Text("Demonstration Mode (Wifi)")
+                    })
+                    
+                    NavigationLink(destination: JawMechanismServiceView(), label: {
+                        Text("Jaw Mechanism")
+                    })
+                }
             }
             .navigationTitle("Services")
         }

@@ -81,7 +81,7 @@ struct BrainView: View {
         inputText = ""  // Clear the input field
         
         if useOpenAI {
-            let aiKey = settingsManager.settings.openAIKey
+            let aiKey = settingsManager.globalSettings.openAIKey
             
             if BrainView.openAI == nil, !aiKey.isEmpty {
                 BrainView.openAI = OpenAI(apiToken: aiKey)

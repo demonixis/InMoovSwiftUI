@@ -26,6 +26,7 @@
 		ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4522BDFF21100642255 /* ServoDataManager.swift */; };
 		ACB5F4552BDFF3F400642255 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5F4542BDFF3F400642255 /* SettingsManager.swift */; };
 		ACC442092BE50D13006CAE40 /* BluetoothServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */; };
+		ACCC5DB12BE587E1005C84FA /* BrainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCC5DB02BE587E1005C84FA /* BrainData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		ACB5F4522BDFF21100642255 /* ServoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoDataManager.swift; sourceTree = "<group>"; };
 		ACB5F4542BDFF3F400642255 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServiceView.swift; sourceTree = "<group>"; };
+		ACCC5DB02BE587E1005C84FA /* BrainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				ACB3BEA72BE0D506006F7AF3 /* Services */,
-				AC3872582BDE8DE400656A98 /* ServoMixerView.swift */,
 				AC38725A2BDE8E0000656A98 /* SettingsView.swift */,
 				AC38725C2BDE8E0B00656A98 /* BrainView.swift */,
 				AC38725E2BDE8E2300656A98 /* ServiceView.swift */,
@@ -128,6 +129,7 @@
 		ACB3BEA72BE0D506006F7AF3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AC3872582BDE8DE400656A98 /* ServoMixerView.swift */,
 				AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */,
 				ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */,
 				ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */,
@@ -141,6 +143,7 @@
 				AC60E7862BDD3117001EDB83 /* RobotCommand.swift */,
 				ACB5F44E2BDF9C5000642255 /* RobotServo.swift */,
 				ACB5F4502BDFB92C00642255 /* ServoData.swift */,
+				ACCC5DB02BE587E1005C84FA /* BrainData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC38725F2BDE8E2300656A98 /* ServiceView.swift in Sources */,
+				ACCC5DB12BE587E1005C84FA /* BrainData.swift in Sources */,
 				ACB5F4552BDFF3F400642255 /* SettingsManager.swift in Sources */,
 				AC2DBCD52BD9050100E171CA /* ContentView.swift in Sources */,
 				ACB5F44F2BDF9C5000642255 /* RobotServo.swift in Sources */,

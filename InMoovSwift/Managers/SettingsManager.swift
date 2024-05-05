@@ -10,19 +10,32 @@ import Foundation
 class SettingsManager: ObservableObject {
     static let shared = SettingsManager()
     private static let userDefaultKey = "settingsData"
+    private static let cardDataKey = "cardsData"
         
-    var settings: Settings = Settings()
+    var globalSettings: Settings = Settings()
+    var devBoardData: [DevelopmentBoard] = []
 
     private init() {
         if let loaded = SettingsManager.loadSettingsData() {
-            settings = loaded
+            globalSettings = loaded
+        }
+        
+        if let cards = SettingsManager.loadCardData() {
+            devBoardData = cards;
         }
     }
     
     func saveSettingsData() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(self.settings) {
+        if let encoded = try? encoder.encode(self.globalSettings) {
             UserDefaults.standard.set(encoded, forKey: SettingsManager.userDefaultKey)
+        }
+    }
+    
+    func saveCardData() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self.devBoardData) {
+            UserDefaults.standard.set(encoded, forKey: SettingsManager.cardDataKey)
         }
     }
     
@@ -35,12 +48,24 @@ class SettingsManager: ObservableObject {
         
         return nil
     }
+    
+    static func loadCardData() -> [DevelopmentBoard]? {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.data(forKey: cardDataKey),
+           let decoded = try? decoder.decode([DevelopmentBoard].self, from: data) {
+            return decoded
+        }
+        
+        return nil
+    }
 }
 
 struct Settings: Codable {
     var openAIKey: String = ""
     var voiceRSSKey: String = ""
+    var elevenLabKey: String = ""
     var demoMode = false
     var speechLang: String = "en-US"
     var speechGender: String = "Male"
+    var brainProvider: BrainProviders = .OpenAI
 }

@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 struct BluetoothServiceView: View {
-    @State private var boards: [DevelopmentBoard] = []
-    
+    @ObservedObject private var settingsManager = SettingsManager.shared
+
     var body: some View {
         NavigationStack {
             List {
-                ForEach(boards, id: \.id) { currentBoard in
-                    NavigationLink(destination: ConnectionItem(data: boards[boards.firstIndex(where: { $0.id == currentBoard.id })!])) {
+                ForEach(settingsManager.devBoardData, id: \.id) { currentBoard in
+                    NavigationLink(destination: ConnectionItem(data: settingsManager.devBoardData[settingsManager.devBoardData.firstIndex(where: { $0.id == currentBoard.id })!])) {
                         Text("\(currentBoard.displayName)")
                     }
                 }
@@ -37,18 +37,18 @@ struct BluetoothServiceView: View {
             }
             .navigationBarTitle("Bluetooth")
             .navigationBarItems(trailing: Button("Save") {
-                
+                settingsManager.saveCardData()
             })
         }
     }
     
     private func addConnectionItem() {
         let dev = DevelopmentBoard(bluetoothName: BluetoothManager.targetDeviceName, cardId: 0)
-        boards.append(dev)
+        settingsManager.devBoardData.append(dev)
     }
     
     private func deleteConnectionItem(at offsets: IndexSet) {
-        boards.remove(atOffsets: offsets)
+        settingsManager.devBoardData.remove(atOffsets: offsets)
     }
 }
 

@@ -25,12 +25,6 @@ struct ContentView: View {
                 }
                 .tag("brain")
             
-            ServoMixerView()
-                .tabItem {
-                    Label("Servos Mixer", systemImage: "list.dash")
-                }
-                .tag("mixer")
-            
             ServiceView()
                 .tabItem {
                     Label("Services", systemImage: "gear")
