@@ -9,13 +9,13 @@ import SwiftUI
 import Network
 
 struct ServoMixerView: View {
-    @ObservedObject private var servoManager = ServoDataManager.shared
+    @ObservedObject private var settings = SettingsManager.shared
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(servoManager.servosData, id: \.id) { servoData in
-                    NavigationLink(destination: ServoDataView(servoData: $servoManager.servosData[servoManager.servosData.firstIndex(where: { $0.id == servoData.id })!])) {
+                ForEach(settings.servosData, id: \.id) { servoData in
+                    NavigationLink(destination: ServoDataView(servoData: $settings.servosData[settings.servosData.firstIndex(where: { $0.id == servoData.id })!])) {
                         Text("\(servoData.servo.displayName)")
                     }
                 }
@@ -44,20 +44,20 @@ struct ServoMixerView: View {
     
     private func addServo() {
         let newServoData = ServoData(servo: .headYaw)
-        servoManager.servosData.append(newServoData)
+        settings.servosData.append(newServoData)
     }
     
     private func delete(at offsets: IndexSet) {
-        servoManager.servosData.remove(atOffsets: offsets)
+        settings.servosData.remove(atOffsets: offsets)
     }
     
     private func saveSettings() {
-        servoManager.saveServosData()
+        settings.saveServosData()
     }
 }
 
 struct ServoDataView: View {
-    private let mixerManager = ServoMixerManager.shared
+    private let mixerManager = ServoMixer.shared
     @Binding var servoData: ServoData
     let allServos = RobotServo.allCases
     let allMixageTypes = ServoMixageType.allCases
@@ -88,19 +88,32 @@ struct ServoDataView: View {
                 }
             }
             
-            Toggle("Enabled", isOn: $servoData.enabled)
-                .onChange(of: servoData.enabled) {
+            Toggle("Enabled", isOn: Binding(
+                get: { servoData.enabled },
+                set: {
+                    servoData.enabled = $0
                     mixerManager.setServoEnabled(servoData)
                 }
+            ))
             
-            Toggle("Invert", isOn: $servoData.invert)
+            Toggle("Invert", isOn: Binding(
+                get: { servoData.invert },
+                set: {
+                    servoData.invert = $0
+                    mixerManager.sendServoValue(servoData)
+                }
+            ))
+            
             Toggle("Scale Value to 180", isOn: $servoData.scaleValueTo180)
             
             VStack(alignment: .leading) {
                 Text("Min: \(servoData.min)")
                 Slider(value: Binding(
                     get: { Double(servoData.min) },
-                    set: { servoData.min = UInt8($0) }
+                    set: {
+                        servoData.min = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -108,7 +121,10 @@ struct ServoDataView: View {
                 Text("Max: \(servoData.max)")
                 Slider(value: Binding(
                     get: { Double(servoData.max) },
-                    set: { servoData.max = UInt8($0) }
+                    set: { 
+                        servoData.max = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -116,7 +132,10 @@ struct ServoDataView: View {
                 Text("Neutral: \(servoData.neutral)")
                 Slider(value: Binding(
                     get: { Double(servoData.neutral) },
-                    set: { servoData.neutral = UInt8($0) }
+                    set: {
+                        servoData.neutral = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -154,10 +173,6 @@ struct ServoDataView: View {
             }
         }
         .navigationBarTitle("Edit Servo")
-    }
-    
-    private func updateDataOnBoard() {
-        print("Next step!")
     }
 }
 

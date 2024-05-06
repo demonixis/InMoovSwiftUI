@@ -9,7 +9,6 @@ import SwiftUI
 import Network
 
 struct DemoWifiServiceView: View {
-    @State private var isConnectedToSpecificWifi = true
     @State private var headYawValue: Double = 0
     @State private var headPitchValue: Double = 0
     @State private var jawValue: Double = 0
@@ -92,7 +91,7 @@ struct DemoWifiServiceView: View {
         
     }
     
-    func sendData(command: RobotCommand, value: Int) {
+    func sendData(command: DemoCommands, value: Int) {
         let urlString = "http://192.168.1.1?\(command.rawValue)=\(value)"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
@@ -117,8 +116,8 @@ struct DemoWifiServiceView: View {
 struct SliderRow : View {
     var label: String
     @Binding var value: Double
-    var asm: RobotCommand
-    var onValueChange: (RobotCommand, Int) -> Void
+    var asm: DemoCommands
+    var onValueChange: (DemoCommands, Int) -> Void
     
     var body: some View {
         HStack {

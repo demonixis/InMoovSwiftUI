@@ -16,22 +16,22 @@ enum RobotServo: Int, CaseIterable, Identifiable, Codable {
     case leftShoulderRoll = 22
     case leftElbowPitch = 23
     case leftWristRoll = 24
-    case leftThumb = 30
-    case leftIndex = 31
-    case leftMiddle = 32
-    case leftRing = 33
-    case leftLittle = 34
+    case leftThumbFinger = 30
+    case leftIndexFinger = 31
+    case leftMiddleFinger = 32
+    case leftRingFinger = 33
+    case leftLittleFinger = 34
     // Right Arm
     case rightShoulderYaw = 40
     case rightShoulderPitch = 41
     case rightShoulderRoll = 42
     case rightElbowPitch = 43
     case rightWristRoll = 44
-    case rightThumb = 50
-    case rightIndex = 51
-    case rightMiddle = 52
-    case rightRing = 53
-    case rightLittle = 54
+    case rightThumbFinger = 50
+    case rightIndexFinger = 51
+    case rightMiddleFinger = 52
+    case rightRingFinger = 53
+    case rightLittleFinger = 54
     // Pelvis
     case pelvisYaw = 60
     case pelvisPitch = 61
@@ -62,7 +62,51 @@ extension RobotServo {
             return "Head Roll"
         case .headRollAlt:
             return "Head Roll (2nd servo)"
-        // Ajoutez les autres cas ici...
+        case .leftShoulderYaw:
+            return "Left Shoulder Yaw"
+        case .leftShoulderPitch:
+            return "Left Shoulder Pitch"
+        case .leftShoulderRoll:
+            return "Left Shoulder Roll"
+        case .leftElbowPitch:
+            return "Left Elbow Pitch"
+        case .leftWristRoll:
+            return "Left Wrist Roll"
+        case .leftThumbFinger:
+            return "Left Thumb Finger"
+        case .leftIndexFinger:
+            return "Left Index Finger"
+        case .leftMiddleFinger:
+            return "Left Middle Finger"
+        case .leftRingFinger:
+            return "Left Ring Finger"
+        case .leftLittleFinger:
+            return "Left Little Finger"
+        case .rightShoulderPitch:
+            return "Right Shoulder Pitch"
+        case .rightShoulderRoll:
+            return "Right Shoulder Roll"
+        case .rightElbowPitch:
+            return "Right Elbow Pitch"
+        case .rightWristRoll:
+            return "Right Wrist Roll"
+        case .rightThumbFinger:
+            return "Right Thumb Finger"
+        case .rightIndexFinger:
+            return "Right Index Finger"
+        case .rightMiddleFinger:
+            return "Right Middle Finger"
+        case .rightRingFinger:
+            return "Right Ring Finger"
+        case .rightLittleFinger:
+            return "Right Little Finger"
+        case .pelvisYaw:
+            return "Pelvis Yaw"
+        case .pelvisPitch:
+            return "Pelvis Pitch"
+        case .pelvisRoll:
+            return "Pelvis Roll"
+            
         default:
             return "\(self)"
         }

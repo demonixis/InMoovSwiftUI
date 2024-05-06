@@ -1,4 +1,4 @@
-enum RobotCommand: Int {
+enum DemoCommands: Int {
     case headYaw = 1
     case headPitch = 2
     case jaw = 3
@@ -21,7 +21,7 @@ enum RobotCommand: Int {
     }
 }
 
-enum ServoCommand: Int {
+enum RobotCommand: Int {
     case setServoValue = 1
     case updateServoConfig = 2
     case removeServoConfig = 3

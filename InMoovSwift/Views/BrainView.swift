@@ -27,7 +27,7 @@ struct BrainView: View {
                     ForEach(messages) { message in
                         HStack {
                             if message.isFromUser {
-                                Spacer()  // Push user messages to the right
+                                Spacer()
                                 Text(message.text)
                                     .padding()
                                     .background(Color.blue)
@@ -126,12 +126,13 @@ struct BrainView: View {
     }
 
     func speak(_ message: String) {
-        let selectedVoiceLanguage = "en-US"
-        let selectedGenderIndex = 0
+        let settings = SettingsManager.shared.globalSettings
+        let selectedVoiceLanguage = settings.speechLang.rawValue
+        let selectedGenderIndex = settings.speechGender
         let utterance = AVSpeechUtterance(string: message);
         utterance.voice = AVSpeechSynthesisVoice(language: selectedVoiceLanguage)
 
-        if selectedGenderIndex == 0 {
+        if selectedGenderIndex == .male {
             utterance.voice = AVSpeechSynthesisVoice.speechVoices().first(where: { $0.language == selectedVoiceLanguage && $0.gender == .male })
         } else {
             utterance.voice = AVSpeechSynthesisVoice.speechVoices().first(where: { $0.language == selectedVoiceLanguage && $0.gender == .female })

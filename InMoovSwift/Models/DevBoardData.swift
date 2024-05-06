@@ -18,7 +18,7 @@ enum DevBoardType: Int, Codable, Identifiable, CaseIterable {
     }
 }
 
-struct DevBoard: Codable, Identifiable {
+struct DevBoardData: Codable, Identifiable {
     var id: UUID = UUID()
     var bluetoothName: String
     var cardId: UInt8

@@ -43,7 +43,7 @@ struct BluetoothServiceView: View {
     }
     
     private func addConnectionItem() {
-        let dev = DevBoard(bluetoothName: BluetoothManager.targetDeviceName, cardId: 0, cardType: .bluetooth)
+        let dev = DevBoardData(bluetoothName: BluetoothManager.targetDeviceName, cardId: 0, cardType: .bluetooth)
         settingsManager.devBoardData.append(dev)
     }
     
@@ -53,8 +53,8 @@ struct BluetoothServiceView: View {
 }
 
 struct ConnectionItem: View {
-    @ObservedObject private var bluetoothManager: BluetoothManager = BluetoothManager.shared;
-    @Binding var data:DevBoard
+    @ObservedObject private var bluetooth: BluetoothManager = BluetoothManager.shared;
+    @Binding var data:DevBoardData
 
     private let cardIds = Array(0...10).map { $0 }
     
@@ -83,18 +83,18 @@ struct ConnectionItem: View {
                 .disabled(data.cardType != .bluetooth)
                 
                 HStack {
-                    Text("Bluetooth \(bluetoothManager.isConnected ? "Connected" : "Disconnected")")
+                    Text("Bluetooth \(bluetooth.getStringStatus())")
                     Spacer()
                     Circle()
                         .frame(width: 20, height: 20)
-                        .foregroundStyle(bluetoothManager.isConnected ? .green : .red)
+                        .foregroundStyle(bluetooth.getColorStatus())
                 }
                 .disabled(data.cardType != .bluetooth)
                 
                 HStack {
                     Spacer()
-                    Button("\(bluetoothManager.isConnected ? "Disconnect" : "Connect")") {
-                        if (bluetoothManager.isConnected) {
+                    Button("\(bluetooth.isConnected ? "Disconnect" : "Connect")") {
+                        if (bluetooth.isConnected) {
                             deconnectDevice()
                         } else {
                             connectDevice()
