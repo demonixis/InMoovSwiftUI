@@ -36,9 +36,9 @@ struct ServoMixerView: View {
                 }
             }
             .navigationBarTitle("Servos")
-            .navigationBarItems(trailing: Button("Save") {
-                saveSettings()
-            })
+            //.navigationBarItems(trailing: Button("Save") {
+            //    saveSettings()
+            //})
         }
     }
     

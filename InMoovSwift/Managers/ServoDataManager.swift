@@ -11,7 +11,7 @@ class ServoDataManager: ObservableObject {
     static let shared = ServoDataManager()
     private static let userDefaultsKey = "servosData"
     
-    var servosData: [ServoData] {
+    @Published var servosData: [ServoData] {
         didSet {
             saveServosData()
         }

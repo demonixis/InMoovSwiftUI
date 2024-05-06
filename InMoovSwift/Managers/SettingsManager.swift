@@ -12,8 +12,17 @@ class SettingsManager: ObservableObject {
     private static let userDefaultKey = "settingsData"
     private static let cardDataKey = "cardsData"
         
-    var globalSettings: Settings = Settings()
-    var devBoardData: [DevelopmentBoard] = []
+    @Published var globalSettings: Settings = Settings() {
+        didSet {
+            saveSettingsData()
+        }
+    }
+    
+    @Published var devBoardData: [DevelopmentBoard] = [] {
+        didSet {
+            saveCardData()
+        }
+    }
 
     private init() {
         if let loaded = SettingsManager.loadSettingsData() {

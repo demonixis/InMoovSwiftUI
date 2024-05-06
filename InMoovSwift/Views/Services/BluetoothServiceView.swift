@@ -15,7 +15,7 @@ struct BluetoothServiceView: View {
         NavigationStack {
             List {
                 ForEach(settingsManager.devBoardData, id: \.id) { currentBoard in
-                    NavigationLink(destination: ConnectionItem(data: settingsManager.devBoardData[settingsManager.devBoardData.firstIndex(where: { $0.id == currentBoard.id })!])) {
+                    NavigationLink(destination: ConnectionItem(data: $settingsManager.devBoardData[settingsManager.devBoardData.firstIndex(where: { $0.id == currentBoard.id })!])) {
                         Text("\(currentBoard.displayName)")
                     }
                 }
@@ -36,9 +36,9 @@ struct BluetoothServiceView: View {
                 }
             }
             .navigationBarTitle("Bluetooth")
-            .navigationBarItems(trailing: Button("Save") {
-                settingsManager.saveCardData()
-            })
+            //.navigationBarItems(trailing: Button("Save") {
+            //    settingsManager.saveCardData()
+            //})
         }
     }
     
@@ -54,7 +54,7 @@ struct BluetoothServiceView: View {
 
 struct ConnectionItem: View {
     @ObservedObject private var bluetoothManager: BluetoothManager = BluetoothManager.shared;
-    @State var data:DevelopmentBoard
+    @Binding var data:DevelopmentBoard
 
     private let cardIds = Array(0...10).map { $0 }
     

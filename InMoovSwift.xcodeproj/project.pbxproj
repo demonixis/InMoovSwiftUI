@@ -86,7 +86,7 @@
 			children = (
 				AC95EC832BE3B68B0046CDC8 /* InMoovSwift.entitlements */,
 				AC7287562BE160F500768C52 /* Managers */,
-				ACB5F44D2BDF9C4000642255 /* Data */,
+				ACB5F44D2BDF9C4000642255 /* Models */,
 				AC3872572BDE8DD000656A98 /* Views */,
 				AC2DBCD22BD9050100E171CA /* InMoovSwiftApp.swift */,
 				AC2DBCD42BD9050100E171CA /* ContentView.swift */,
@@ -137,7 +137,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		ACB5F44D2BDF9C4000642255 /* Data */ = {
+		ACB5F44D2BDF9C4000642255 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AC60E7862BDD3117001EDB83 /* RobotCommand.swift */,
@@ -145,7 +145,7 @@
 				ACB5F4502BDFB92C00642255 /* ServoData.swift */,
 				ACCC5DB02BE587E1005C84FA /* BrainData.swift */,
 			);
-			path = Data;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
