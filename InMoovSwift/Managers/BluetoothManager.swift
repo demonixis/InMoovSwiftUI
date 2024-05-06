@@ -7,16 +7,6 @@
 import CoreBluetooth
 import Foundation
 
-struct DevelopmentBoard: Codable, Identifiable {
-    var id: UUID = UUID()
-    var bluetoothName: String
-    var cardId: UInt8
-    
-    var displayName: String {
-        return "Card: \(cardId)"
-    }
-}
-
 class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static var shared = BluetoothManager()
     var centralManager: CBCentralManager!
@@ -64,7 +54,15 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         centralManager.stopScan()
     }
     
-    func sendData(data: Data) {
+    func sendData(_ message: String) {
+        if let data = message.data(using: .utf8) {
+            sendData(data)
+        } else {
+            logMessage("Failed to convert \(message) to Data")
+        }
+    }
+    
+    func sendData(_ data: Data) {
         guard let peripheral = self.peripheral, let services = peripheral.services else {
             logMessage("Peripheral not connected or services not discovered")
             return

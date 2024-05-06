@@ -43,7 +43,7 @@ struct BluetoothServiceView: View {
     }
     
     private func addConnectionItem() {
-        let dev = DevelopmentBoard(bluetoothName: BluetoothManager.targetDeviceName, cardId: 0)
+        let dev = DevBoard(bluetoothName: BluetoothManager.targetDeviceName, cardId: 0, cardType: .bluetooth)
         settingsManager.devBoardData.append(dev)
     }
     
@@ -54,7 +54,7 @@ struct BluetoothServiceView: View {
 
 struct ConnectionItem: View {
     @ObservedObject private var bluetoothManager: BluetoothManager = BluetoothManager.shared;
-    @Binding var data:DevelopmentBoard
+    @Binding var data:DevBoard
 
     private let cardIds = Array(0...10).map { $0 }
     
@@ -70,8 +70,17 @@ struct ConnectionItem: View {
                 }
                 
                 HStack {
+                    Picker("Card Type", selection: $data.cardType) {
+                        ForEach(DevBoardType.allCases, id: \.self) { cardType in
+                            Text("\(cardType)").tag(cardType)
+                        }
+                    }
+                }
+                
+                HStack {
                     TextField("Bluetooth name", text: $data.bluetoothName)
                 }
+                .disabled(data.cardType != .bluetooth)
                 
                 HStack {
                     Text("Bluetooth \(bluetoothManager.isConnected ? "Connected" : "Disconnected")")
@@ -80,6 +89,7 @@ struct ConnectionItem: View {
                         .frame(width: 20, height: 20)
                         .foregroundStyle(bluetoothManager.isConnected ? .green : .red)
                 }
+                .disabled(data.cardType != .bluetooth)
                 
                 HStack {
                     Spacer()
@@ -91,6 +101,7 @@ struct ConnectionItem: View {
                         }
                     }
                 }
+                .disabled(data.cardType != .bluetooth)
             }
         }
     }

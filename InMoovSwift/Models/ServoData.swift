@@ -1,4 +1,5 @@
 import Foundation
+
 enum ServoMixageType: Int, CaseIterable, Identifiable, Codable {
     // Head
     case None = 0

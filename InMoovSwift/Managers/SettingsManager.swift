@@ -18,7 +18,7 @@ class SettingsManager: ObservableObject {
         }
     }
     
-    @Published var devBoardData: [DevelopmentBoard] = [] {
+    @Published var devBoardData: [DevBoard] = [] {
         didSet {
             saveCardData()
         }
@@ -58,10 +58,10 @@ class SettingsManager: ObservableObject {
         return nil
     }
     
-    static func loadCardData() -> [DevelopmentBoard]? {
+    static func loadCardData() -> [DevBoard]? {
         let decoder = JSONDecoder()
         if let data = UserDefaults.standard.data(forKey: cardDataKey),
-           let decoded = try? decoder.decode([DevelopmentBoard].self, from: data) {
+           let decoded = try? decoder.decode([DevBoard].self, from: data) {
             return decoded
         }
         

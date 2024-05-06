@@ -1,3 +1,5 @@
+import Foundation
+
 enum RobotServo: Int, CaseIterable, Identifiable, Codable {
     // Head
     case eyeX = 1

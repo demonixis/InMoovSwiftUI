@@ -18,6 +18,9 @@
 		AC38725F2BDE8E2300656A98 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725E2BDE8E2300656A98 /* ServiceView.swift */; };
 		AC60E7872BDD3117001EDB83 /* RobotCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC60E7862BDD3117001EDB83 /* RobotCommand.swift */; };
 		AC7287582BE1619400768C52 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7287572BE1619400768C52 /* BluetoothManager.swift */; };
+		ACADFE942BE8BA3A000BB6E2 /* ServoMixerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACADFE932BE8BA3A000BB6E2 /* ServoMixerManager.swift */; };
+		ACADFE962BE8CB4B000BB6E2 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACADFE952BE8CB4B000BB6E2 /* WifiManager.swift */; };
+		ACADFE982BE8CC68000BB6E2 /* DevBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACADFE972BE8CC68000BB6E2 /* DevBoard.swift */; };
 		ACB3BEA92BE0D528006F7AF3 /* JawMechanismServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */; };
 		ACB3BEAB2BE0D987006F7AF3 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */; };
 		ACB3BEAE2BE0F2A4006F7AF3 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = ACB3BEAD2BE0F2A4006F7AF3 /* OpenAI */; };
@@ -43,6 +46,9 @@
 		AC60E7862BDD3117001EDB83 /* RobotCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotCommand.swift; sourceTree = "<group>"; };
 		AC7287572BE1619400768C52 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BluetoothManager.swift; path = InMoovSwift/Managers/BluetoothManager.swift; sourceTree = SOURCE_ROOT; };
 		AC95EC832BE3B68B0046CDC8 /* InMoovSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InMoovSwift.entitlements; sourceTree = "<group>"; };
+		ACADFE932BE8BA3A000BB6E2 /* ServoMixerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoMixerManager.swift; sourceTree = "<group>"; };
+		ACADFE952BE8CB4B000BB6E2 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
+		ACADFE972BE8CC68000BB6E2 /* DevBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevBoard.swift; sourceTree = "<group>"; };
 		ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JawMechanismServiceView.swift; sourceTree = "<group>"; };
 		ACB3BEAA2BE0D987006F7AF3 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		ACB5F44E2BDF9C5000642255 /* RobotServo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotServo.swift; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				AC7287572BE1619400768C52 /* BluetoothManager.swift */,
 				ACB5F4522BDFF21100642255 /* ServoDataManager.swift */,
 				ACB5F4542BDFF3F400642255 /* SettingsManager.swift */,
+				ACADFE932BE8BA3A000BB6E2 /* ServoMixerManager.swift */,
+				ACADFE952BE8CB4B000BB6E2 /* WifiManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 				ACB5F44E2BDF9C5000642255 /* RobotServo.swift */,
 				ACB5F4502BDFB92C00642255 /* ServoData.swift */,
 				ACCC5DB02BE587E1005C84FA /* BrainData.swift */,
+				ACADFE972BE8CC68000BB6E2 /* DevBoard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,10 +244,13 @@
 				ACC442092BE50D13006CAE40 /* BluetoothServiceView.swift in Sources */,
 				AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */,
 				AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */,
+				ACADFE942BE8BA3A000BB6E2 /* ServoMixerManager.swift in Sources */,
+				ACADFE982BE8CC68000BB6E2 /* DevBoard.swift in Sources */,
 				AC38725D2BDE8E0B00656A98 /* BrainView.swift in Sources */,
 				AC38725B2BDE8E0000656A98 /* SettingsView.swift in Sources */,
 				AC60E7872BDD3117001EDB83 /* RobotCommand.swift in Sources */,
 				AC2DBCD32BD9050100E171CA /* InMoovSwiftApp.swift in Sources */,
+				ACADFE962BE8CB4B000BB6E2 /* WifiManager.swift in Sources */,
 				ACB3BEA92BE0D528006F7AF3 /* JawMechanismServiceView.swift in Sources */,
 				ACB3BEAB2BE0D987006F7AF3 /* StartView.swift in Sources */,
 			);
