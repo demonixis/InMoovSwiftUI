@@ -57,11 +57,13 @@ struct ServoMixerView: View {
 }
 
 struct ServoDataView: View {
+    private let mixerManager = ServoMixerManager.shared
     @Binding var servoData: ServoData
     let allServos = RobotServo.allCases
     let allMixageTypes = ServoMixageType.allCases
     let pinIds = Array(2...64).map { $0 }
     let cardIds = Array(0...10).map { $0 }
+    
     
     var body: some View {
         Form {
@@ -76,6 +78,9 @@ struct ServoDataView: View {
                     Text("\(pinId)").tag(UInt8(pinId))
                 }
             }
+            .onChange(of: servoData.pinId) { oldValue, newValue in
+                mixerManager.updateServoConfig(data: servoData, previousPin: oldValue)
+            }
             
             Picker("Card ID", selection: $servoData.cardId) {
                 ForEach(cardIds, id: \.self) { cardId in
@@ -84,6 +89,10 @@ struct ServoDataView: View {
             }
             
             Toggle("Enabled", isOn: $servoData.enabled)
+                .onChange(of: servoData.enabled) {
+                    mixerManager.setServoEnabled(servoData)
+                }
+            
             Toggle("Invert", isOn: $servoData.invert)
             Toggle("Scale Value to 180", isOn: $servoData.scaleValueTo180)
             
@@ -112,10 +121,13 @@ struct ServoDataView: View {
             }
             
             VStack(alignment: .leading) {
-                Text("Neutral: \(servoData.value)")
+                Text("Value: \(servoData.value)")
                 Slider(value: Binding(
                     get: { Double(servoData.value) },
-                    set: { servoData.value = UInt8($0) }
+                    set: { 
+                        servoData.value = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             

@@ -11,7 +11,7 @@
 		AC2DBCD52BD9050100E171CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DBCD42BD9050100E171CA /* ContentView.swift */; };
 		AC2DBCD72BD9050300E171CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2DBCD62BD9050300E171CA /* Assets.xcassets */; };
 		AC2DBCDA2BD9050300E171CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2DBCD92BD9050300E171CA /* Preview Assets.xcassets */; };
-		AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */; };
+		AC3872562BDE8B0C00656A98 /* DemoWifiServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3872552BDE8B0C00656A98 /* DemoWifiServiceView.swift */; };
 		AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3872582BDE8DE400656A98 /* ServoMixerView.swift */; };
 		AC38725B2BDE8E0000656A98 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725A2BDE8E0000656A98 /* SettingsView.swift */; };
 		AC38725D2BDE8E0B00656A98 /* BrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38725C2BDE8E0B00656A98 /* BrainView.swift */; };
@@ -38,7 +38,7 @@
 		AC2DBCD42BD9050100E171CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC2DBCD62BD9050300E171CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC2DBCD92BD9050300E171CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonstrationServiceView.swift; sourceTree = "<group>"; };
+		AC3872552BDE8B0C00656A98 /* DemoWifiServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoWifiServiceView.swift; sourceTree = "<group>"; };
 		AC3872582BDE8DE400656A98 /* ServoMixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoMixerView.swift; sourceTree = "<group>"; };
 		AC38725A2BDE8E0000656A98 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AC38725C2BDE8E0B00656A98 /* BrainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainView.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				AC3872582BDE8DE400656A98 /* ServoMixerView.swift */,
-				AC3872552BDE8B0C00656A98 /* DemonstrationServiceView.swift */,
+				AC3872552BDE8B0C00656A98 /* DemoWifiServiceView.swift */,
 				ACB3BEA82BE0D528006F7AF3 /* JawMechanismServiceView.swift */,
 				ACC442082BE50D13006CAE40 /* BluetoothServiceView.swift */,
 			);
@@ -242,7 +242,7 @@
 				ACB5F4532BDFF21100642255 /* ServoDataManager.swift in Sources */,
 				ACB5F4512BDFB92C00642255 /* ServoData.swift in Sources */,
 				ACC442092BE50D13006CAE40 /* BluetoothServiceView.swift in Sources */,
-				AC3872562BDE8B0C00656A98 /* DemonstrationServiceView.swift in Sources */,
+				AC3872562BDE8B0C00656A98 /* DemoWifiServiceView.swift in Sources */,
 				AC3872592BDE8DE400656A98 /* ServoMixerView.swift in Sources */,
 				ACADFE942BE8BA3A000BB6E2 /* ServoMixerManager.swift in Sources */,
 				ACADFE982BE8CC68000BB6E2 /* DevBoard.swift in Sources */,

@@ -70,12 +70,12 @@ class ServoMixerManager {
     }
     
     ///
-    /// API: Command=PinID
+    /// API: Command=PinID:1|0
     ///
-    func stopServo(_ data: ServoData) {
+    func setServoEnabled(_ data: ServoData) {
         let cardId = data.cardId
         let pinId = data.pinId
-        let valueStr = "\(ServoCommand.stopServo)=\(pinId)"
+        let valueStr = "\(ServoCommand.setServoEnabled)=\(pinId):\(data.enabled ? 1 : 0)"
         sendDataToCard(value: valueStr, cardId: cardId)
     }
     

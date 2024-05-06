@@ -24,7 +24,7 @@ struct ServiceView: View {
                 }
                 
                 Section("Secondary") {
-                    NavigationLink(destination: DemonstrationServiceView(), label: {
+                    NavigationLink(destination: DemoWifiServiceView(), label: {
                         Text("Demonstration Mode (Wifi)")
                     })
                     

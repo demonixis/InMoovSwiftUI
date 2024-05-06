@@ -25,7 +25,7 @@ enum ServoCommand: Int {
     case setServoValue = 1
     case updateServoConfig = 2
     case removeServoConfig = 3
-    case stopServo = 4
+    case setServoEnabled = 4
     case playAnimation = 10
     case requestSensorStatus = 20
     

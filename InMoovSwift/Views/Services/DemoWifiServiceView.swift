@@ -8,7 +8,7 @@
 import SwiftUI
 import Network
 
-struct DemonstrationServiceView: View {
+struct DemoWifiServiceView: View {
     @State private var isConnectedToSpecificWifi = true
     @State private var headYawValue: Double = 0
     @State private var headPitchValue: Double = 0
@@ -134,5 +134,5 @@ struct SliderRow : View {
 }
 
 #Preview {
-    DemonstrationServiceView()
+    DemoWifiServiceView()
 }
