@@ -6,6 +6,13 @@
 //
 import CoreBluetooth
 import Foundation
+import SwiftUI
+
+enum BluetoothStatus: String {
+    case disconnected = "Disconnected"
+    case connected = "Connected"
+    case scanning = "Scanning"
+}
 
 class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static var shared = BluetoothManager()
@@ -21,6 +28,26 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBPeripheralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    func getColorStatus() -> Color {
+        if isConnected {
+            return .green
+        } else if centralManager.isScanning {
+            return .orange
+        }
+        
+        return .red
+    }
+    
+    func getStringStatus() -> BluetoothStatus {
+        if isConnected {
+            return .connected
+        } else if centralManager.isScanning {
+            return .scanning
+        }
+        
+        return .disconnected
     }
     
     func isScaning() -> Bool {

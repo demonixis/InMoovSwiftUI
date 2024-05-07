@@ -11,6 +11,19 @@ enum ServoMixageType: Int, CaseIterable, Identifiable, Codable {
     }
 }
 
+extension ServoMixageType {
+    var displayName: String {
+        switch self {
+        case .SameValue:
+            return "Same Value"
+        case .InvertValue:
+            return "Invert Value"
+        default:
+            return "\(self)"
+        }
+    }
+}
+
 struct ServoData: Codable, Identifiable {
     var id: UUID = UUID()
     var servo: RobotServo

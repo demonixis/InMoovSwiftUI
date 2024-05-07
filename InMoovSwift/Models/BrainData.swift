@@ -14,3 +14,29 @@ enum BrainProviders: UInt8, CaseIterable, Identifiable, Codable {
         return self.rawValue
     }
 }
+
+enum TTSProviders: Int, CaseIterable, Identifiable, Codable {
+    case System = 1
+    
+    var id: Int {
+        return self.rawValue
+    }
+}
+
+enum SystemLanguage: String, CaseIterable, Identifiable, Codable {
+    case french = "fr-FR"
+    case english = "en-US"
+    
+    var id: String {
+        return self.rawValue
+    }
+}
+
+enum SystemGender: String, CaseIterable, Identifiable, Codable {
+    case male = "Male"
+    case female = "Female"
+    
+    var id: String {
+        return self.rawValue
+    }
+}

@@ -12,8 +12,8 @@ import Foundation
 /// - Command=Value
 /// - Command=Value1:Value2:Value3:Value4
 ///
-class ServoMixerManager {
-    static let shared = ServoMixerManager()
+class ServoMixer {
+    static let shared = ServoMixer()
     let bluetooth = BluetoothManager.shared
     
     init() {
@@ -37,7 +37,7 @@ class ServoMixerManager {
         }
     }
     
-    func getCard(_ id: UInt8) -> DevBoard? {
+    func getCard(_ id: UInt8) -> DevBoardData? {
         let allBoards = SettingsManager.shared.devBoardData
         
         for board in allBoards {
@@ -55,7 +55,7 @@ class ServoMixerManager {
     func updateServoConfig(data: ServoData, previousPin: UInt8) {
         let cardId = data.cardId
         let pinId = data.pinId
-        let valueStr = "\(ServoCommand.updateServoConfig)=\(pinId):\(previousPin)"
+        let valueStr = "\(RobotCommand.updateServoConfig.rawValue)=\(pinId):\(previousPin)"
         sendDataToCard(value: valueStr, cardId: cardId)
     }
     
@@ -65,7 +65,7 @@ class ServoMixerManager {
     func removeServoConfig(_ data: ServoData) {
         let cardId = data.cardId
         let pinId = data.pinId
-        let valueStr = "\(ServoCommand.removeServoConfig)=\(pinId)"
+        let valueStr = "\(RobotCommand.removeServoConfig.rawValue)=\(pinId)"
         sendDataToCard(value: valueStr, cardId: cardId)
     }
     
@@ -75,7 +75,7 @@ class ServoMixerManager {
     func setServoEnabled(_ data: ServoData) {
         let cardId = data.cardId
         let pinId = data.pinId
-        let valueStr = "\(ServoCommand.setServoEnabled)=\(pinId):\(data.enabled ? 1 : 0)"
+        let valueStr = "\(RobotCommand.setServoEnabled.rawValue)=\(pinId):\(data.enabled ? 1 : 0)"
         sendDataToCard(value: valueStr, cardId: cardId)
     }
     
@@ -95,7 +95,7 @@ class ServoMixerManager {
             // TODO
         }
         
-        let valueStr = "\(ServoCommand.setServoValue)=\(pinId):\(value)"
+        let valueStr = "\(RobotCommand.setServoValue.rawValue)=\(pinId):\(value)"
         sendDataToCard(value: valueStr, cardId: cardId)
     }
         

@@ -11,44 +11,62 @@ class SettingsManager: ObservableObject {
     static let shared = SettingsManager()
     private static let userDefaultKey = "settingsData"
     private static let cardDataKey = "cardsData"
+    private static let servoStoreKey = "servosData"
         
     @Published var globalSettings: Settings = Settings() {
         didSet {
-            saveSettingsData()
+            saveAppSettings()
         }
     }
     
-    @Published var devBoardData: [DevBoard] = [] {
+    @Published var devBoardData: [DevBoardData] = [] {
         didSet {
-            saveCardData()
+            saveDevBoardData()
+        }
+    }
+    
+    @Published var servosData: [ServoData] = [] {
+        didSet {
+            saveServosData()
         }
     }
 
     private init() {
-        if let loaded = SettingsManager.loadSettingsData() {
+        if let loaded = SettingsManager.loadAppSettings() {
             globalSettings = loaded
         }
         
-        if let cards = SettingsManager.loadCardData() {
+        if let cards = SettingsManager.loadDevBoardData() {
             devBoardData = cards;
+        }
+        
+        if let servos = SettingsManager.loadServosData() {
+            servosData = servos
         }
     }
     
-    func saveSettingsData() {
+    func saveAppSettings() {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(self.globalSettings) {
             UserDefaults.standard.set(encoded, forKey: SettingsManager.userDefaultKey)
         }
     }
     
-    func saveCardData() {
+    func saveDevBoardData() {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(self.devBoardData) {
             UserDefaults.standard.set(encoded, forKey: SettingsManager.cardDataKey)
         }
     }
     
-    static func loadSettingsData() -> Settings? {
+    func saveServosData() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(servosData) {
+            UserDefaults.standard.set(encoded, forKey: SettingsManager.servoStoreKey)
+        }
+    }
+    
+    static func loadAppSettings() -> Settings? {
         let decoder = JSONDecoder()
         if let data = UserDefaults.standard.data(forKey: userDefaultKey),
            let decoded = try? decoder.decode(Settings.self, from: data) {
@@ -58,23 +76,22 @@ class SettingsManager: ObservableObject {
         return nil
     }
     
-    static func loadCardData() -> [DevBoard]? {
+    static func loadDevBoardData() -> [DevBoardData]? {
         let decoder = JSONDecoder()
         if let data = UserDefaults.standard.data(forKey: cardDataKey),
-           let decoded = try? decoder.decode([DevBoard].self, from: data) {
+           let decoded = try? decoder.decode([DevBoardData].self, from: data) {
             return decoded
         }
         
         return nil
     }
-}
-
-struct Settings: Codable {
-    var openAIKey: String = ""
-    var voiceRSSKey: String = ""
-    var elevenLabKey: String = ""
-    var demoMode = false
-    var speechLang: String = "en-US"
-    var speechGender: String = "Male"
-    var brainProvider: BrainProviders = .OpenAI
+    
+    static func loadServosData() -> [ServoData]? {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.data(forKey: servoStoreKey),
+           let decoded = try? decoder.decode([ServoData].self, from: data) {
+            return decoded
+        }
+        return nil
+    }
 }
