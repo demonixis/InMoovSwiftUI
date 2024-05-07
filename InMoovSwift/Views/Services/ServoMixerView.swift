@@ -110,7 +110,7 @@ struct ServoDataView: View {
                     servoData.scaleValueTo180 = $0
                     mixerManager.sendServoValue(servoData)
                 }
-            )
+            ))
             
             VStack(alignment: .leading) {
                 Text("Min: \(servoData.min)")

@@ -27,7 +27,7 @@ class ServoMixer {
             print("[ServoMixerManager] Card \(cardId) wasn't found")
             return
         }
-        
+
         if card.cardType == .bluetooth {
             bluetooth.sendData(value)
         } else if card.cardType == .wifi {
