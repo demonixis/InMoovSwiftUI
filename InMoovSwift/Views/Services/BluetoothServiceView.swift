@@ -35,7 +35,7 @@ struct BluetoothServiceView: View {
                     .padding()
                 }
             }
-            .navigationBarTitle("Bluetooth")
+            .navigationBarTitle("Connections")
             //.navigationBarItems(trailing: Button("Save") {
             //    settingsManager.saveCardData()
             //})

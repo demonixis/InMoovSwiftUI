@@ -15,7 +15,7 @@ struct ServiceView: View {
             List {
                 Section("Main") {
                     NavigationLink(destination: BluetoothServiceView(), label: {
-                        Text("Bluetooth")
+                        Text("Connections")
                     })
                     
                     NavigationLink(destination: ServoMixerView(), label: {

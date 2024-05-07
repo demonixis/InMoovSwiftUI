@@ -100,7 +100,10 @@ struct ServoDataView: View {
                 Text("Min: \(servoData.min)")
                 Slider(value: Binding(
                     get: { Double(servoData.min) },
-                    set: { servoData.min = UInt8($0) }
+                    set: { 
+                        servoData.min = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -108,7 +111,10 @@ struct ServoDataView: View {
                 Text("Max: \(servoData.max)")
                 Slider(value: Binding(
                     get: { Double(servoData.max) },
-                    set: { servoData.max = UInt8($0) }
+                    set: { 
+                        servoData.max = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -116,7 +122,10 @@ struct ServoDataView: View {
                 Text("Neutral: \(servoData.neutral)")
                 Slider(value: Binding(
                     get: { Double(servoData.neutral) },
-                    set: { servoData.neutral = UInt8($0) }
+                    set: {
+                        servoData.neutral = UInt8($0)
+                        mixerManager.sendServoValue(servoData)
+                    }
                 ), in: 0...180)
             }
             
@@ -154,10 +163,6 @@ struct ServoDataView: View {
             }
         }
         .navigationBarTitle("Edit Servo")
-    }
-    
-    private func updateDataOnBoard() {
-        print("Next step!")
     }
 }
 
